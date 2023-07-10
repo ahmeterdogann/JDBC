@@ -80,6 +80,10 @@ public class MovieRepository {
             preparedStatement.setString(1, movie.getName());
             preparedStatement.setString(2, movie.getDirector());
             preparedStatement.setInt(3, movie.getYear());
+            /*
+            insert işlemleri executeUpdate metodu ile yapılmalıdır. Eğer executeQuery metodu ile yapılırsa hem exception alırız
+            hem de ilgili veri de tabloya insert edilmiş olur. Bu durumu dikkat edilmelidir.
+             */
             int effectedRows = preparedStatement.executeUpdate();
             if (effectedRows == 0)
                 throw new MovieAppException("save failed");
