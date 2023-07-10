@@ -96,11 +96,16 @@ public class MovieRepository {
          loglanabilir ancak loglarda istenilen şeyi bulmamızı zorlaştıracaktır.
          */
         catch (PSQLException e) {
-            System.out.println("Hata alınan şema : " + e.getServerErrorMessage().getSchema());
-            System.out.println("Hata alınan tablo : " + e.getServerErrorMessage().getTable());
-            System.out.println("Hata alınan kısıt : " + e.getServerErrorMessage().getConstraint());
-            System.out.println();
-            System.out.println(e.getServerErrorMessage());
+            if (e != null) {
+                System.out.println("Hata alınan şema : " + e.getServerErrorMessage().getSchema());
+                System.out.println("Hata alınan tablo : " + e.getServerErrorMessage().getTable());
+                System.out.println("Hata alınan kısıt : " + e.getServerErrorMessage().getConstraint());
+                System.out.println();
+                System.out.println(e.getServerErrorMessage());
+            }
+            else
+                System.out.println(e.getLocalizedMessage());
+
         }
         catch (SQLException e) {
             System.out.println(e.getMessage());
