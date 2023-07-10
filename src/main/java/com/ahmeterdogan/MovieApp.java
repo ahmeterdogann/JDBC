@@ -8,9 +8,9 @@ public class MovieApp {
         MovieRepository.findAll().stream().forEach(System.out::println);
         System.out.println("*******************");
         System.out.println("SAVE");
-        Movie titanic = new Movie(-1,"Pulp Fiction", "Quentin Tarantino", 1990);
-        MovieRepository.save(titanic);
-        System.out.println(titanic);
+        Movie pulpFiction = new Movie(-1,"Pulp Fiction", "Quentin Tarantino", 1800);
+        MovieRepository.save(pulpFiction);
+        System.out.println(pulpFiction);
         System.out.println("*******************");
         System.out.println("Find By Director");
         MovieRepository.findByDirector("Quentin Tarantino").stream().forEach(System.out::println);
