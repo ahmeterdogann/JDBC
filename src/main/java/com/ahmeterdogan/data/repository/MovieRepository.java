@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 public class MovieRepository {
     private static final String FIND_ALL_SQL = "select * from movie.movies";
+    //id'yi aşağıda string olarak ekleme yaparsan Sql Injection'a açık hale gelirsin
+    //Ex : select * from movie.movies where director = '' or (1=1)
     private static final String FIND_BY_ID_SQL = "select * from movie.movies where id = ?";
     private static final String FIND_BY_DIRECTOR_SQL = "select * from movie.movies where director = ?";
     private static final String SAVE_SQL = "insert into movie.movies(name, director, year) values (?, ?, ?)";
